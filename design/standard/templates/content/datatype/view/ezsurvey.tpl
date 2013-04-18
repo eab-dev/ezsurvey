@@ -18,9 +18,9 @@
 {def $module_param_value=concat(module_params().module_name,'/', module_params().function_name)}
 {if $module_param_value|ne('content/edit')}
 {literal}
-<script language="Javascript">
-var isSurveySubmitted = false;
-<!--
+<script  type="text/javascript">
+/* <![CDATA[ */
+    var isSurveySubmitted = false;
     function DisableSurvey{/literal}{$attribute.id}{literal}( form ) {
     document.body.style.cursor = 'progress';
     for (var i = 0; i < form.length; i++) {
@@ -35,7 +35,7 @@ var isSurveySubmitted = false;
 
        return retVal;
     }
-//-->
+/* ]]> */
 </script>
 {/literal}
 <form enctype="multipart/form-data" method="post" action={$node.url_alias|ezurl()} onsubmit="DisableSurvey{$attribute.id}(this);">
